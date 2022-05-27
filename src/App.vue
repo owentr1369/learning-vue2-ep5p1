@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h1>{{ title }}</h1>
+    <h1>After computed: {{ lowerCaseTitle }}</h1>
     <button @click="show">Show</button>
     <p v-if="showParagraph">
       Vue (pronounced /vju:/, like view) is a JavaScript framework for building
@@ -27,10 +28,10 @@ export default {
     updateTitle: function (title) {
       this.title = title;
     },
-    watch: {
-      title: function (value) {
-        alert("Title changed, new value:" + value);
-      },
+  },
+  watch: {
+    title: function (value) {
+      alert("Title changed, new value: " + value);
     },
   },
   computed: {
