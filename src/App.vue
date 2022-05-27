@@ -2,7 +2,7 @@
   <div id="app">
     <h1>{{ title }}</h1>
     <h1>After computed: {{ lowerCaseTitle }}</h1>
-    <button @click="show">Show</button>
+    <button @click="show" ref="infoButton">Show</button>
     <p v-if="showParagraph">
       Vue (pronounced /vju:/, like view) is a JavaScript framework for building
       user interfaces. It builds on top of standard HTML, CSS and JavaScript,
@@ -24,6 +24,9 @@ export default {
     show: function () {
       this.showParagraph = !this.showParagraph;
       this.updateTitle("This VueJS Instace (Updated)");
+      console.log(this.$refs);
+      this.$refs.infoButton.innerText = "Hello";
+      // innerText ko co kha nang ghi de len template
     },
     updateTitle: function (title) {
       this.title = title;
